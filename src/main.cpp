@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    SDL_Delay(1000);
+    LichPP::app->startLoop(LichPP::graphics->renderer, States::Play);
 
 	LichPP::destroy();
 	return 0;

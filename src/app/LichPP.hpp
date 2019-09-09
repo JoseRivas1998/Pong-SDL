@@ -10,6 +10,7 @@
 #include <SDL.h>
 #include "../graphics/Graphics.hpp"
 #include "ApplicationConfiguration.hpp"
+#include "App.hpp"
 
 class LichPP {
 
@@ -18,6 +19,7 @@ public:
     static void destroy();
 
     static Graphics *graphics;
+    static App *app;
 
 };
 

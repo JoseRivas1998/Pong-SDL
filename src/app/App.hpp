@@ -9,15 +9,21 @@
 
 #include <SDL.h>
 
+#include "../managers/GameStateManager.hpp"
+
 class App {
 public:
-    void startLoop(SDL_Renderer *renderer);
+    void startLoop(SDL_Renderer *renderer, States initialState);
+    void switchState(States state);
 private:
     bool isRunning = false;
     void gameLoop(SDL_Renderer *renderer);
     void handleEvents();
+    void handleWindowEvent(SDL_WindowEvent windowEvent);
     void step(SDL_Renderer *renderer);
+    void resize(int width, int height);
     void quit();
+    GameStateManager *gsm = nullptr;
 
 };
 

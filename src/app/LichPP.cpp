@@ -10,6 +10,8 @@
 
 Graphics *LichPP::graphics = nullptr;
 
+App *LichPP::app = nullptr;
+
 void println(const char *str) {
     std::cout << str << std::endl;
 }
@@ -50,6 +52,8 @@ bool LichPP::init(ApplicationConfiguration appConfig) {
         printError();
         return false;
     }
+
+    LichPP::app = new App();
 
     return true;
 }
