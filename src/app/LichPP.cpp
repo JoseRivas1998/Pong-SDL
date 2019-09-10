@@ -61,6 +61,7 @@ bool LichPP::init(ApplicationConfiguration appConfig) {
 
 void LichPP::destroy() {
     delete LichPP::graphics;
+    delete LichPP::app;
     SDL_Quit();
     println("Game cleaned!");
 }

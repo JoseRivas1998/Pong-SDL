@@ -11,6 +11,7 @@
 
 #include "../managers/GameStateManager.hpp"
 #include "../graphics/Color.hpp"
+#include "../input/InputMultiplexer.hpp"
 
 class App {
 public:
@@ -19,11 +20,13 @@ public:
     void clean();
     void setClearColor(const Color &c);
     float getDeltaTime();
+    void addInputListener(InputListener *listener);
 private:
     bool isRunning = false;
     void gameLoop(SDL_Renderer *renderer);
     void handleEvents();
     void handleWindowEvent(SDL_WindowEvent windowEvent);
+    void handleKeyboardEvent(SDL_KeyboardEvent keyboardEvent);
     void step(SDL_Renderer *renderer);
     void resize(int width, int height);
     void quit();
@@ -32,6 +35,7 @@ private:
     void calculateDeltaTime();
     Uint64 lastTime = 0;
     float deltaTime = 0.0f;
+    InputMultiplexer inputMultiplexer;
 
 };
 

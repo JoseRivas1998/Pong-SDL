@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "app/LichPP.hpp"
+#include "input/PongInputProcessor.hpp"
 
 int main(int argc, char **argv) {
 
@@ -18,6 +19,8 @@ int main(int argc, char **argv) {
         LichPP::destroy();
         return -1;
     }
+
+    LichPP::app->addInputListener(new PongInputProcessor());
 
     LichPP::app->startLoop(LichPP::graphics->renderer, States::Play);
     LichPP::app->clean();

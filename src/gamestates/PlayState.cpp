@@ -10,8 +10,8 @@
 #include "States.hpp"
 #include "../app/LichPP.hpp"
 
-float timer = 0;
-int seconds = 0;
+#include "../input/PongInput.hpp"
+
 void PlayState::init() {
     rect.set(Rectangle(20, 100, 50, 30));
 }
@@ -21,16 +21,15 @@ void PlayState::clean() {
 }
 
 void PlayState::handleInput(float dt) {
-
+    if(PongInput::keyCheck(PongInput::UP)) {
+        rect.y -= 500 * dt;
+    }
+    if(PongInput::keyCheck(PongInput::DOWN)) {
+        rect.y += 500 * dt;
+    }
 }
 
 void PlayState::update(float dt) {
-    timer += dt;
-    if(timer >= 1) {
-        seconds++;
-        timer = 0;
-        std::cout << seconds << " Second" << (seconds > 1 ? "s": "") << std::endl;
-    }
 
 }
 

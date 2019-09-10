@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include "App.hpp"
+#include "../input/PongInput.hpp"
 
 void App::startLoop(SDL_Renderer *renderer, States initialState) {
     isRunning = true;
@@ -18,6 +19,7 @@ void App::gameLoop(SDL_Renderer *renderer) {
     while(isRunning) {
         handleEvents();
         step(renderer);
+        PongInput::update();
         calculateDeltaTime();
     }
 
@@ -39,6 +41,10 @@ void App::handleEvents() {
             break;
         case SDL_WINDOWEVENT:
             handleWindowEvent(event.window);
+            break;
+        case SDL_KEYDOWN:
+        case SDL_KEYUP:
+            handleKeyboardEvent(event.key);
             break;
     }
 }
@@ -80,4 +86,12 @@ void App::calculateDeltaTime() {
 
 float App::getDeltaTime() {
     return this->deltaTime;
+}
+
+void App::handleKeyboardEvent(SDL_KeyboardEvent keyboardEvent) {
+    this->inputMultiplexer.handleKeyboardEvent(keyboardEvent);
+}
+
+void App::addInputListener(InputListener *listener) {
+    this->inputMultiplexer.addInputListener(listener);
 }
