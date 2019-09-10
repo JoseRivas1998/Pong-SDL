@@ -7,6 +7,8 @@
 #ifndef PONG_APPLICATIONCONFIGURATION_HPP
 #define PONG_APPLICATIONCONFIGURATION_HPP
 
+#include "../graphics/Color.hpp"
+
 typedef struct appConfig {
     const char *title;
     int xPos;
@@ -15,6 +17,7 @@ typedef struct appConfig {
     int height;
     bool fullScreen;
     bool resizable;
+    Color clearColor;
 } ApplicationConfiguration;
 
 #endif //PONG_APPLICATIONCONFIGURATION_HPP

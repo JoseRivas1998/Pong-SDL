@@ -18,7 +18,9 @@ void App::gameLoop(SDL_Renderer *renderer) {
     while(isRunning) {
         handleEvents();
         step(renderer);
+        calculateDeltaTime();
     }
+
 }
 
 void App::handleWindowEvent(SDL_WindowEvent windowEvent) {
@@ -42,14 +44,13 @@ void App::handleEvents() {
 }
 
 void App::step(SDL_Renderer *renderer) {
+    SDL_SetRenderDrawColor(renderer, clearColor.r, clearColor.g, clearColor.b, clearColor.a);
     SDL_RenderClear(renderer);
     this->gsm->step(renderer);
     SDL_RenderPresent(renderer);
 }
 
 void App::quit() {
-    this->gsm->clean();
-    delete this->gsm;
     this->isRunning = false;
 }
 
@@ -59,4 +60,24 @@ void App::resize(int width, int height) {
 
 void App::switchState(States state) {
     this->gsm->setState(state);
+}
+
+void App::clean() {
+    this->gsm->clean();
+    delete this->gsm;
+}
+
+void App::setClearColor(const Color &c) {
+    this->clearColor.set(c);
+}
+
+void App::calculateDeltaTime() {
+    Uint32 currentTime = SDL_GetPerformanceCounter();
+    Uint32 deltaMillis = currentTime - lastTime;
+    this->deltaTime = deltaMillis / (float) SDL_GetPerformanceFrequency();
+    this->lastTime = currentTime;
+}
+
+float App::getDeltaTime() {
+    return this->deltaTime;
 }

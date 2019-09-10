@@ -12,6 +12,7 @@ int main(int argc, char **argv) {
     config.height = 600;
     config.fullScreen = false;
     config.resizable = true;
+    config.clearColor.set(0x00, 0x00, 0x00, 0xFF);
 
     if(!LichPP::init(config)) {
         LichPP::destroy();
@@ -19,7 +20,7 @@ int main(int argc, char **argv) {
     }
 
     LichPP::app->startLoop(LichPP::graphics->renderer, States::Play);
-
+    LichPP::app->clean();
 	LichPP::destroy();
 	return 0;
 }

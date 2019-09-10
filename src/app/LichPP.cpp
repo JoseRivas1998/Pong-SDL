@@ -54,6 +54,7 @@ bool LichPP::init(ApplicationConfiguration appConfig) {
     }
 
     LichPP::app = new App();
+    LichPP::app->setClearColor(appConfig.clearColor);
 
     return true;
 }
