@@ -10,6 +10,8 @@
 #include "States.hpp"
 #include "../app/LichPP.hpp"
 
+float timer = 0;
+int seconds = 0;
 void PlayState::init() {
     rect.set(Rectangle(20, 100, 50, 30));
 }
@@ -18,15 +20,21 @@ void PlayState::clean() {
 
 }
 
-void PlayState::handleInput() {
+void PlayState::handleInput(float dt) {
 
 }
 
-void PlayState::update() {
+void PlayState::update(float dt) {
+    timer += dt;
+    if(timer >= 1) {
+        seconds++;
+        timer = 0;
+        std::cout << seconds << " Second" << (seconds > 1 ? "s": "") << std::endl;
+    }
 
 }
 
-void PlayState::draw(SDL_Renderer *renderer) {
+void PlayState::draw(float dt, SDL_Renderer *renderer) {
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_Rect r = rect.toRect();
     SDL_RenderDrawRect(renderer, &r);

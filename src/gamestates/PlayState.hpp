@@ -17,11 +17,11 @@ public:
 
     void clean() override;
 
-    void handleInput() override;
+    void handleInput(float dt) override;
 
-    void update() override;
+    void update(float dt) override;
 
-    void draw(SDL_Renderer *renderer) override;
+    void draw(float dt, SDL_Renderer *renderer) override;
 
     void resize(int width, int height) override;
 

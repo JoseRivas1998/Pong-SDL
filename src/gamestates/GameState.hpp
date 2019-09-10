@@ -14,9 +14,9 @@ public:
     virtual ~GameState() = default;
     virtual void init() = 0;
     virtual void clean() = 0;
-    virtual void handleInput() = 0;
-    virtual void update() = 0;
-    virtual void draw(SDL_Renderer *renderer) = 0;
+    virtual void handleInput(float dt) = 0;
+    virtual void update(float dt) = 0;
+    virtual void draw(float dt, SDL_Renderer *renderer) = 0;
     virtual void resize(int width, int height) = 0;
 };
 

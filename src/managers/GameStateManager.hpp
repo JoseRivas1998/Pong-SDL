@@ -14,7 +14,7 @@
 class GameStateManager {
 public:
     void setState(States state);
-    void step(SDL_Renderer *renderer);
+    void step(float dt, SDL_Renderer *renderer);
     void resize(int width, int height);
     void clean();
 private:

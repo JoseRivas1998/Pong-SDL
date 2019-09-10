@@ -21,10 +21,10 @@ void GameStateManager::setState(States state) {
     this->currentState->init();
 }
 
-void GameStateManager::step(SDL_Renderer *renderer) {
-    this->currentState->handleInput();
-    this->currentState->update();
-    this->currentState->draw(renderer);
+void GameStateManager::step(float dt, SDL_Renderer *renderer) {
+    this->currentState->handleInput(dt);
+    this->currentState->update(dt);
+    this->currentState->draw(dt, renderer);
 }
 
 void GameStateManager::resize(int width, int height) {
