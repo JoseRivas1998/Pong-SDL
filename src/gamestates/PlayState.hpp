@@ -8,8 +8,11 @@
 #define PONG_PLAYSTATE_HPP
 
 #include "GameState.hpp"
+#include "../math/Rectangle.hpp"
 
 class PlayState : public GameState {
+
+public:
     void init() override;
 
     void clean() override;
@@ -20,8 +23,11 @@ class PlayState : public GameState {
 
     void draw(SDL_Renderer *renderer) override;
 
-public:
     void resize(int width, int height) override;
+
+private:
+    Rectangle rect;
+
 };
 
 
