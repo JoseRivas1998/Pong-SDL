@@ -4,6 +4,7 @@
 * Date: 9/9/19
 **/
 
+#include <iostream>
 #include "PlayState.hpp"
 
 #include "States.hpp"
