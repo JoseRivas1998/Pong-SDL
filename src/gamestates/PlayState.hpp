@@ -9,10 +9,16 @@
 
 #include "GameState.hpp"
 #include "../math/Rectangle.hpp"
+#include "../entities/Ball.hpp"
+
+constexpr float BALL_SIZE = 25.0f;
 
 class PlayState : public GameState {
 
 public:
+
+    PlayState() : ball(BALL_SIZE) {};
+
     void init() override;
 
     void clean() override;
@@ -26,7 +32,9 @@ public:
     void resize(int width, int height) override;
 
 private:
+    constexpr static float BALL_SIZE = 25.0f;
     Rectangle rect;
+    Ball ball;
 
 };
 

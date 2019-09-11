@@ -19,3 +19,7 @@ void Color::set(const Color &c) {
     this->set(c.r, c.g, c.b, c.a);
 }
 
+void Color::setDrawColor(SDL_Renderer *renderer) {
+    SDL_SetRenderDrawColor(renderer, this->r, this->g, this->b, this->a);
+}
+

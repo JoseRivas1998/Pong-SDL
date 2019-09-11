@@ -50,7 +50,7 @@ void App::handleEvents() {
 }
 
 void App::step(SDL_Renderer *renderer) {
-    SDL_SetRenderDrawColor(renderer, clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+    clearColor.setDrawColor(renderer);
     SDL_RenderClear(renderer);
     this->gsm->step(isinff(this->deltaTime) ? 0.0f : this->deltaTime, renderer);
     SDL_RenderPresent(renderer);

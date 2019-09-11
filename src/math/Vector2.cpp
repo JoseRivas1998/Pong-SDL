@@ -23,6 +23,10 @@ Vector2 Vector2::polarDeg(float magnitude, float degrees) {
     return Vector2(x, y);
 }
 
+Vector2 Vector2::polarRand(float magnitude) {
+    return Vector2::polar(magnitude, MathUtils::rand(0, MathUtils::PI2));
+}
+
 void Vector2::set(const Vector2 &v) {
     this->set(v.x, v.y);
 }

@@ -30,6 +30,7 @@ public:
     Vector2 getSize();
     void setSize(float width, float height);
     void setSize(const Vector2 &size);
+    Rectangle getBounds();
     float getVelocityX();
     void setVelocityX(float x);
     float getVelocityY();

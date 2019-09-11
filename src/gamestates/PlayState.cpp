@@ -14,6 +14,7 @@
 
 void PlayState::init() {
     rect.set(Rectangle(20, 100, 50, 30));
+    ball.reset();
 }
 
 void PlayState::clean() {
@@ -30,13 +31,20 @@ void PlayState::handleInput(float dt) {
 }
 
 void PlayState::update(float dt) {
-
+    ball.update(dt);
+    if(ball.getX() < -50) {
+        ball.reset();
+    }
+    if(ball.getX() + ball.getWidth() > (float) LichPP::graphics->getWindowWidth() + 50) {
+        ball.reset();
+    }
 }
 
 void PlayState::draw(float dt, SDL_Renderer *renderer) {
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_Rect r = rect.toRect();
     SDL_RenderDrawRect(renderer, &r);
+    ball.draw(dt, renderer);
 }
 
 void PlayState::resize(int width, int height) {

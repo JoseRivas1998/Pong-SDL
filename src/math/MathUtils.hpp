@@ -40,6 +40,8 @@ public:
     static float dist(float x1, float y1, float x2, float y2);
     static float dist2(float x1, float y1, float x2, float y2);
 
+    static float rand(float min, float max);
+
 };
 
 #endif //PONG_MATHUTILS_HPP

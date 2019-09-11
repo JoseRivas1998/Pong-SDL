@@ -72,6 +72,10 @@ void AbstractEntity::setSize(const Vector2 &size) {
     this->setSize(size.x, size.y);
 }
 
+Rectangle AbstractEntity::getBounds() {
+    return Rectangle(this->bounds);
+}
+
 float AbstractEntity::getVelocityX() {
     return this->velocity.x;
 }

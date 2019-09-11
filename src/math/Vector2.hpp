@@ -21,6 +21,8 @@ public:
 
     static Vector2 polarDeg(float magnitude, float degrees);
 
+    static Vector2 polarRand(float magnitude);
+
     void set(float x, float y);
 
     void set(const Vector2 &v);

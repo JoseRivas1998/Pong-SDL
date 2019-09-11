@@ -5,6 +5,7 @@
 
 int main(int argc, char **argv) {
 
+    srand(time(nullptr));
     ApplicationConfiguration config;
     config.title = "Pong";
     config.xPos = SDL_WINDOWPOS_CENTERED;
@@ -12,7 +13,7 @@ int main(int argc, char **argv) {
     config.width = 800;
     config.height = 600;
     config.fullScreen = false;
-    config.resizable = true;
+    config.resizable = false;
     config.clearColor.set(0x00, 0x00, 0x00, 0xFF);
 
     if(!LichPP::init(config)) {

@@ -5,6 +5,8 @@
 #include "MathUtils.hpp"
 
 #include <cmath>
+#include <ctime>
+#include <iostream>
 
 float MathUtils::sin(float radians) {
     return std::sin(radians);
@@ -52,4 +54,12 @@ float MathUtils::dist(float x1, float y1, float x2, float y2) {
 
 float MathUtils::dist2(float x1, float y1, float x2, float y2) {
     return MathUtils::mag2(x2 - x1, y2 - y1);
+}
+
+//https://stackoverflow.com/questions/5289613/generate-random-float-between-two-floats/5289624
+float MathUtils::rand(float min, float max) {
+    float random = ((float) std::rand()) / (float) (RAND_MAX);
+    float diff = max - min;
+    float r = random * diff;
+    return min + r;
 }
