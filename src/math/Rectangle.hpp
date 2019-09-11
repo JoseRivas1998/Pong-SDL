@@ -25,6 +25,8 @@ public:
     void set(const Rectangle &rect);
     float area();
     float perimeter();
+    void addToPosition(const Vector2 &vector, float scalar);
+    void addToPosition(const Vector2 &vector);
     SDL_Rect toRect();
 };
 

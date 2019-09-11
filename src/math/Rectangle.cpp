@@ -48,6 +48,15 @@ float Rectangle::perimeter() {
     return 2 * (this->width + this->height);
 }
 
+void Rectangle::addToPosition(const Vector2 &vector, float scalar) {
+    this->x += vector.x * scalar;
+    this->y += vector.y * scalar;
+}
+
+void Rectangle::addToPosition(const Vector2 &vector) {
+    this->addToPosition(vector, 1.0f);
+}
+
 SDL_Rect Rectangle::toRect() {
     SDL_Rect rect;
     rect.x = (int) this->x;
