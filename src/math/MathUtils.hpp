@@ -42,6 +42,12 @@ public:
 
     static float rand(float min, float max);
 
+    static bool randBool(float chance);
+
+    static bool randBool();
+
+    static float randSign();
+
 };
 
 #endif //PONG_MATHUTILS_HPP

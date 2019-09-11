@@ -12,9 +12,11 @@ bool processKey(SDL_Keycode keycode, bool value) {
     bool processed = true;
     switch (keycode) {
         case SDLK_UP:
+        case SDLK_w:
             PongInput::setKey(PongInput::UP, value);
             break;
         case SDLK_DOWN:
+        case SDLK_s:
             PongInput::setKey(PongInput::DOWN, value);
             break;
         default:

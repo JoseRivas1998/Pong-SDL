@@ -11,6 +11,7 @@
 #include "../math/Rectangle.hpp"
 #include "../entities/Ball.hpp"
 #include "../entities/Player.hpp"
+#include "../entities/AiPaddle.hpp"
 
 constexpr float BALL_SIZE = 25.0f;
 constexpr float PADDLE_HEIGHT = BALL_SIZE * 2.5f;
@@ -19,7 +20,7 @@ class PlayState : public GameState {
 
 public:
 
-    PlayState() : ball(BALL_SIZE), player(BALL_SIZE, PADDLE_HEIGHT) {};
+    PlayState() : ball(BALL_SIZE), player(BALL_SIZE, PADDLE_HEIGHT), aiPaddle(BALL_SIZE, PADDLE_HEIGHT) {};
 
     void init() override;
 
@@ -37,6 +38,7 @@ private:
     constexpr static float BALL_SIZE = 25.0f;
     Ball ball;
     Player player;
+    AIPaddle aiPaddle;
 };
 
 

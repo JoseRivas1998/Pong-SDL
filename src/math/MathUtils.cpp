@@ -63,3 +63,15 @@ float MathUtils::rand(float min, float max) {
     float r = random * diff;
     return min + r;
 }
+
+bool MathUtils::randBool(float chance) {
+    return MathUtils::rand(0, 1) <= chance;
+}
+
+bool MathUtils::randBool() {
+    return MathUtils::randBool(0.5f);
+}
+
+float MathUtils::randSign() {
+    return MathUtils::randBool() ? 1.0f : -1.0f;
+}

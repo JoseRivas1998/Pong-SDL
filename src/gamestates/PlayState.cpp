@@ -16,6 +16,9 @@ void PlayState::init() {
     ball.reset();
     player.setX(((float) LichPP::graphics->getWindowWidth() * 0.15f) - (player.getWidth() * 0.5f));
     player.setY(((float) LichPP::graphics->getWindowHeight() * 0.5f) - (player.getHeight() * 0.5f));
+    aiPaddle.setX(((float) LichPP::graphics->getWindowWidth() * 0.85f) - (aiPaddle.getWidth() * 0.5f));
+    aiPaddle.setY(((float) LichPP::graphics->getWindowHeight() * 0.5f) - (aiPaddle.getHeight() * 0.5f));
+
 }
 
 void PlayState::clean() {
@@ -29,6 +32,8 @@ void PlayState::handleInput(float dt) {
 void PlayState::update(float dt) {
     ball.update(dt);
     player.update(dt);
+    aiPaddle.updateTarget(ball);
+    aiPaddle.update(dt);
     if(ball.getX() < -50) {
         ball.reset();
     }
@@ -39,11 +44,16 @@ void PlayState::update(float dt) {
         ball.setX(player.getX() + player.getWidth());
         ball.bounceX();
     }
+    if(aiPaddle.collidingWith(ball)) {
+        ball.setX(aiPaddle.getX() - ball.getWidth());
+        ball.bounceX();
+    }
 }
 
 void PlayState::draw(float dt, SDL_Renderer *renderer) {
     ball.draw(dt, renderer);
     player.draw(dt, renderer);
+    aiPaddle.draw(dt, renderer);
 }
 
 void PlayState::resize(int width, int height) {
