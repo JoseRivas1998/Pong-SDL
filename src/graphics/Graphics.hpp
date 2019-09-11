@@ -13,6 +13,7 @@ public:
     ~Graphics();
     int getWindowWidth();
     int getWindowHeight();
+    void setTitle(const char *title);
     SDL_Renderer *renderer;
     SDL_Window *window;
 };

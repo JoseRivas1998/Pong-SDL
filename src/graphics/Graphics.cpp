@@ -21,3 +21,7 @@ int Graphics::getWindowHeight() {
     SDL_GetWindowSize(this->window, nullptr, &height);
     return height;
 }
+
+void Graphics::setTitle(const char *title) {
+    SDL_SetWindowTitle(this->window, title);
+}
