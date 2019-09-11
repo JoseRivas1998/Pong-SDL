@@ -44,6 +44,8 @@ public:
     float getDirectionDeg();
     void setDirection(float radians);
     void setDirectionDeg(float degrees);
+    bool collidingWith(const Rectangle &rect);
+    bool collidingWith(const AbstractEntity &e);
 protected:
     void applyVelocity(float dt);
 private:

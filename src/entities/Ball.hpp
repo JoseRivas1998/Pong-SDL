@@ -19,7 +19,12 @@ public:
 
     void draw(float dt, SDL_Renderer *renderer) override;
 
+    void bounceY();
+
+    void bounceX();
+
 private:
+
     constexpr static float BALL_SPEED = 500.0f;
 };
 

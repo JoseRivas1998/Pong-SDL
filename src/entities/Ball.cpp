@@ -6,7 +6,7 @@
 #include "Ball.hpp"
 #include "../app/LichPP.hpp"
 
-Ball::Ball(float size) {
+Ball::Ball(float size) : AbstractEntity() {
     this->setSize(size, size);
 }
 
@@ -17,8 +17,9 @@ void Ball::reset() {
     this->setX((worldWidth * 0.5f) - (this->getWidth() * 0.5f));
     this->setY((worldHeight * 0.5f) - (this->getHeight() * 0.5f));
 
-    this->setVelocity(Vector2::polarRand(Ball::BALL_SPEED));
-
+    do {
+        this->setVelocity(Vector2::polarRand(Ball::BALL_SPEED));
+    } while((this->getDirectionDeg() > 80 && this->getDirectionDeg() < 100) || (this->getDirectionDeg() > 260 && this->getDirectionDeg() < 280));
 }
 
 void Ball::update(float dt) {
@@ -27,17 +28,24 @@ void Ball::update(float dt) {
     auto worldHeight = (float) LichPP::graphics->getWindowHeight();
     if(this->getY() < 0) {
         this->setY(0);
-        this->setVelocityY(-this->getVelocityY());
+        this->bounceY();
     }
     if(this->getY() + this->getHeight() > worldHeight) {
         this->setY(worldHeight - this->getHeight());
-        this->setVelocityY(-this->getVelocityY());
+        this->bounceY();
     }
 }
 
+void Ball::bounceY() {
+    setVelocityY(-getVelocityY());
+}
+
+void Ball::bounceX() {
+    setVelocityX(-getVelocityX());
+}
+
 void Ball::draw(float dt, SDL_Renderer *renderer) {
-    Color white(0xFF, 0xFF, 0xFF, 0xFF);
-    white.setDrawColor(renderer);
+    Color::setDrawColor(renderer, Colors::WHITE);
     SDL_Rect rect = this->getBounds().toRect();
     SDL_RenderFillRect(renderer, &rect);
 }

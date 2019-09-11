@@ -134,3 +134,11 @@ void AbstractEntity::setDirectionDeg(float degrees) {
 void AbstractEntity::applyVelocity(float dt) {
     this->bounds.addToPosition(this->velocity, dt);
 }
+
+bool AbstractEntity::collidingWith(const Rectangle &rect) {
+    return this->bounds.overlaps(rect);
+}
+
+bool AbstractEntity::collidingWith(const AbstractEntity &e) {
+    return this->collidingWith(e.bounds);
+}

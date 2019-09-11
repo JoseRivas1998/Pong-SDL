@@ -16,9 +16,20 @@ public:
     Uint8 a = 0;
     Color() = default;
     Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+    explicit Color(Uint32 rgba8888);
     void set(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
     void set(const Color &c);
     void setDrawColor(SDL_Renderer *renderer);
+    static void setDrawColor(SDL_Renderer *renderer, Uint32 rgba88);
+};
+
+class Colors {
+public:
+    constexpr static Uint32 WHITE = 0xFFFFFFFF;
+    constexpr static Uint32 RED = 0xFF0000FF;
+    constexpr static Uint32 GREEN = 0x00FF00FF;
+    constexpr static Uint32 BLUE = 0x0000FFFF;
+    constexpr static Uint32 BLACK = 0x000000FF;
 };
 
 

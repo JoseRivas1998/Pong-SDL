@@ -10,14 +10,16 @@
 #include "GameState.hpp"
 #include "../math/Rectangle.hpp"
 #include "../entities/Ball.hpp"
+#include "../entities/Player.hpp"
 
 constexpr float BALL_SIZE = 25.0f;
+constexpr float PADDLE_HEIGHT = BALL_SIZE * 2.5f;
 
 class PlayState : public GameState {
 
 public:
 
-    PlayState() : ball(BALL_SIZE) {};
+    PlayState() : ball(BALL_SIZE), player(BALL_SIZE, PADDLE_HEIGHT) {};
 
     void init() override;
 
@@ -33,9 +35,8 @@ public:
 
 private:
     constexpr static float BALL_SIZE = 25.0f;
-    Rectangle rect;
     Ball ball;
-
+    Player player;
 };
 
 
