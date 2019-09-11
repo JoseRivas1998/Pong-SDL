@@ -101,19 +101,30 @@ void AbstractEntity::setVelocity(const Vector2 &vel) {
 }
 
 float AbstractEntity::getSpeed() {
-    return 0;
+    return this->velocity.mag();
 }
 
 void AbstractEntity::setSpeed(float speed) {
-
+    float radians = this->velocity.angle();
+    this->velocity.set(Vector2::polar(speed, radians));
 }
 
 float AbstractEntity::getDirection() {
-    return 0;
+    return this->velocity.angle();
+}
+
+float AbstractEntity::getDirectionDeg() {
+    return this->velocity.angleDeg();
 }
 
 void AbstractEntity::setDirection(float radians) {
+    float speed = this->velocity.mag();
+    this->velocity.set(Vector2::polar(speed, radians));
+}
 
+void AbstractEntity::setDirectionDeg(float degrees) {
+    float speed = this->velocity.mag();
+    this->velocity.set(Vector2::polarDeg(speed, degrees));
 }
 
 void AbstractEntity::applyVelocity(float dt) {

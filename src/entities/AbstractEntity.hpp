@@ -40,7 +40,9 @@ public:
     float getSpeed();
     void setSpeed(float speed);
     float getDirection();
+    float getDirectionDeg();
     void setDirection(float radians);
+    void setDirectionDeg(float degrees);
 protected:
     void applyVelocity(float dt);
 private:
