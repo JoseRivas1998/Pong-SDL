@@ -12,6 +12,8 @@
 void TitleState::init() {
     this->font = new Font("../assets/prstartk.ttf", 48);
     this->font->setColor(Colors::WHITE);
+    this->smaller = new Font("../assets/prstartk.ttf", 36);
+    this->smaller->setColor(Colors::WHITE);
 }
 
 void TitleState::clean() {
@@ -47,6 +49,16 @@ void TitleState::draw(float dt, SDL_Renderer *renderer) {
     y = (worldHeight * 0.25f) - (height * 0.5f);
 
     this->font->draw(renderer, "Pong", x, y);
+
+    std::string enter = "Press enter to begin!";
+
+    width = (float) this->smaller->getWidth(renderer, enter);
+    height = (float) this->smaller->getHeight(renderer, enter);
+
+    x = (worldWidth * 0.5f) - (width * 0.5f);
+    y = (worldHeight * 0.75f) - (height * 0.5f);
+
+    this->smaller->draw(renderer, enter, x, y);
 
 }
 

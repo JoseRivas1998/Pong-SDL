@@ -27,6 +27,7 @@ public:
     void resize(int width, int height) override;
 private:
     Font *font;
+    Font *smaller;
 };
 
 
