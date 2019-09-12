@@ -7,6 +7,7 @@
 #include "LichPP.hpp"
 
 #include <iostream>
+#include <SDL_ttf.h>
 
 Graphics *LichPP::graphics = nullptr;
 
@@ -33,6 +34,12 @@ bool LichPP::init(ApplicationConfiguration appConfig) {
         println("Subsystems initialized");
     } else {
         printError();
+        return false;
+    }
+
+    if(TTF_Init() == 0) {
+        println("Subsystems initialized.");
+    } else {
         return false;
     }
 

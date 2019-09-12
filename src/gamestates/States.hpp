@@ -7,7 +7,7 @@
 #define PONG_STATES_HPP
 
 typedef enum states {
-    Play
+    Title, Play
 } States;
 
 #endif //PONG_STATES_HPP

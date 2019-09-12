@@ -7,6 +7,7 @@
 #include "GameStateManager.hpp"
 
 #include "../gamestates/PlayState.hpp"
+#include "../gamestates/TitleState.hpp"
 
 void GameStateManager::setState(States state) {
     if(this->currentState != nullptr) {
@@ -16,6 +17,9 @@ void GameStateManager::setState(States state) {
     switch (state) {
         case Play:
             this->currentState = new PlayState();
+            break;
+        case Title:
+            this->currentState = new TitleState();
             break;
     }
     this->currentState->init();

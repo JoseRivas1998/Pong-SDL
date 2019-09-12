@@ -6,8 +6,8 @@
 
 #include "PongInput.hpp"
 
-std::array<bool, NUM_KEYS> PongInput::keys = {false, false};
-std::array<bool, NUM_KEYS> PongInput::pkeys = {false, false};
+std::array<bool, NUM_KEYS> PongInput::keys = {false, false, false, false};
+std::array<bool, NUM_KEYS> PongInput::pkeys = {false, false, false, false};
 
 void PongInput::update() {
     for(int i = 0; i < NUM_KEYS; ++i) {

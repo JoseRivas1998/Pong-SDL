@@ -9,12 +9,14 @@
 
 #include <array>
 
-constexpr size_t NUM_KEYS = 2;
+constexpr size_t NUM_KEYS = 4;
 
 class PongInput {
 public:
     const static int UP = 0;
     const static int DOWN = 1;
+    const static int START = 2;
+    const static int BACK = 3;
     static void update();
     static void setKey(int k, bool value);
     static bool keyCheck(int k);

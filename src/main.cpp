@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 
     LichPP::app->addInputListener(new PongInputProcessor());
 
-    LichPP::app->startLoop(LichPP::graphics->renderer, States::Play);
+    LichPP::app->startLoop(LichPP::graphics->renderer, States::Title);
     LichPP::app->clean();
 	LichPP::destroy();
 	return 0;

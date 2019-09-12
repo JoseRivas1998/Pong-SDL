@@ -20,6 +20,7 @@ public:
     void set(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
     void set(const Color &c);
     void setDrawColor(SDL_Renderer *renderer);
+    SDL_Color toSDLColor();
     static void setDrawColor(SDL_Renderer *renderer, Uint32 rgba88);
 };
 

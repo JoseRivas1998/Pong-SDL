@@ -19,6 +19,12 @@ bool processKey(SDL_Keycode keycode, bool value) {
         case SDLK_s:
             PongInput::setKey(PongInput::DOWN, value);
             break;
+        case SDLK_RETURN:
+            PongInput::setKey(PongInput::START, value);
+            break;
+        case SDLK_ESCAPE:
+            PongInput::setKey(PongInput::BACK, value);
+            break;
         default:
             processed = false;
     }

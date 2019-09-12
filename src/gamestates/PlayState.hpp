@@ -12,6 +12,7 @@
 #include "../entities/Ball.hpp"
 #include "../entities/Player.hpp"
 #include "../entities/AiPaddle.hpp"
+#include "../graphics/Font.hpp"
 
 constexpr float BALL_SIZE = 25.0f;
 constexpr float PADDLE_HEIGHT = BALL_SIZE * 2.5f;
@@ -39,6 +40,9 @@ private:
     Ball ball;
     Player player;
     AIPaddle aiPaddle;
+    Font *font;
+    int leftScore;
+    int rightScore;
 };
 
 

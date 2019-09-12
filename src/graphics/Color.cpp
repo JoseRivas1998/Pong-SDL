@@ -35,3 +35,7 @@ void Color::setDrawColor(SDL_Renderer *renderer, Uint32 rgba88) {
     c.setDrawColor(renderer);
 }
 
+SDL_Color Color::toSDLColor() {
+    return SDL_Color{this->r, this->g, this->b, this->a};
+}
+
