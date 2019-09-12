@@ -83,7 +83,3 @@ SDL_Texture *Font::renderText(SDL_Renderer *renderer, const char *str) {
     SDL_FreeSurface(surface);
     return texture;
 }
-
-SDL_Texture *Font::renderText(SDL_Renderer *renderer, const std::string &str) {
-    return renderText(renderer, &str[0]);
-}

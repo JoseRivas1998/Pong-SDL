@@ -30,7 +30,6 @@ private:
     static int getWidth(SDL_Texture *texture);
     static int getHeight(SDL_Texture *texture);
     SDL_Texture *renderText(SDL_Renderer *renderer, const char *str);
-    SDL_Texture *renderText(SDL_Renderer *renderer, const std::string &str);
 };
 
 
