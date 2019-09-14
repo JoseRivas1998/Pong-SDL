@@ -11,6 +11,7 @@ Ball::Ball(float size) : AbstractEntity() {
 }
 
 void Ball::reset() {
+    LichPP::assets->playSoundEffect("peep");
     auto worldWidth = (float) LichPP::graphics->getWindowWidth();
     auto worldHeight = (float) LichPP::graphics->getWindowHeight();
 
@@ -37,10 +38,12 @@ void Ball::update(float dt) {
 }
 
 void Ball::bounceY() {
+    LichPP::assets->playSoundEffect("plop");
     setVelocityY(-getVelocityY());
 }
 
 void Ball::bounceX() {
+    LichPP::assets->playSoundEffect("beep");
     setVelocityX(-getVelocityX());
 }
 

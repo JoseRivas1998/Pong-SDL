@@ -11,6 +11,7 @@
 #include "../graphics/Graphics.hpp"
 #include "ApplicationConfiguration.hpp"
 #include "App.hpp"
+#include "../managers/AssetManager.hpp"
 
 class LichPP {
 
@@ -20,6 +21,7 @@ public:
 
     static Graphics *graphics;
     static App *app;
+    static AssetManager *assets;
 
 };
 

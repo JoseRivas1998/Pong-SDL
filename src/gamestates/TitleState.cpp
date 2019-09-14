@@ -10,14 +10,11 @@
 
 
 void TitleState::init() {
-    this->font = new Font("../assets/prstartk.ttf", 48);
-    this->font->setColor(Colors::WHITE);
-    this->smaller = new Font("../assets/prstartk.ttf", 36);
-    this->smaller->setColor(Colors::WHITE);
+    this->font = LichPP::assets->getFont("title");
+    this->smaller = LichPP::assets->getFont("main");
 }
 
 void TitleState::clean() {
-    delete this->font;
 
 }
 
@@ -25,6 +22,10 @@ void TitleState::handleInput(float dt) {
 
     if(PongInput::keyCheckPressed(PongInput::START)) {
         LichPP::app->switchState(States::Play);
+    }
+
+    if(PongInput::keyCheckPressed(PongInput::BACK)) {
+        LichPP::app->quit();
     }
 
 }

@@ -20,12 +20,11 @@ void PlayState::init() {
     aiPaddle.setY(((float) LichPP::graphics->getWindowHeight() * 0.5f) - (aiPaddle.getHeight() * 0.5f));
     rightScore = 0;
     leftScore = 0;
-    font = new Font("../assets/prstartk.ttf", 36);
-    font->setColor(Colors::WHITE);
+    font = LichPP::assets->getFont("main");
 }
 
 void PlayState::clean() {
-    delete this->font;
+
 }
 
 void PlayState::handleInput(float dt) {

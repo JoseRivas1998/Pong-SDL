@@ -21,6 +21,7 @@ public:
     void setClearColor(const Color &c);
     float getDeltaTime();
     void addInputListener(InputListener *listener);
+    void quit();
 private:
     bool isRunning = false;
     void gameLoop(SDL_Renderer *renderer);
@@ -29,7 +30,6 @@ private:
     void handleKeyboardEvent(SDL_KeyboardEvent keyboardEvent);
     void step(SDL_Renderer *renderer);
     void resize(int width, int height);
-    void quit();
     Color clearColor;
     GameStateManager *gsm = nullptr;
     void calculateDeltaTime();
